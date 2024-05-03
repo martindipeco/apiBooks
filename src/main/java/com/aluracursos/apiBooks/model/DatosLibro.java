@@ -3,10 +3,13 @@ package com.aluracursos.apiBooks.model;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.List;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record DatosLibro(
         @JsonAlias("title")String titulo,
-        @JsonAlias("authors")String autores,
-        @JsonAlias("languages")String idiomas,
-        @JsonAlias("download_count")Integer descargas) {
+        @JsonAlias("authors") List<DatosAutor> autores,
+        @JsonAlias("languages")List<String> idiomas,
+        @JsonAlias("download_count")Integer descargas
+        ) { //Considerar pasar a Double para estadisticas, promedios
 }
